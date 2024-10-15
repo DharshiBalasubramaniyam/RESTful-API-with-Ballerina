@@ -54,7 +54,7 @@ service /book on bookListener {
 
         Book|mongodb:DatabaseError|mongodb:ApplicationError|error? findResult = check books->findOne({id});
 
-        if (findResult is ()) {
+        if findResult is () {
             return {
                 body: "Id not found => " + id
             };
@@ -79,7 +79,7 @@ service /book on bookListener {
 
         mongodb:UpdateResult updateResult = check books->updateOne({id}, {set: bookRequest});
 
-        if (updateResult.modifiedCount != 1) {
+        if updateResult.modifiedCount != 1 {
             return {
                 body: "Id not found => " + id
             };
@@ -93,7 +93,7 @@ service /book on bookListener {
 
         mongodb:DeleteResult deleteResult = check books->deleteOne({id});
 
-        if (deleteResult.deletedCount != 1) {
+        if deleteResult.deletedCount != 1 {
             return {
                 body: "Id not found => " + id
             };
