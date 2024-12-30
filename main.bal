@@ -56,7 +56,7 @@ service /book on bookListener {
 
         if findResult is () {
             return {
-                body: "Id not found => " + id
+                body: "Id not found. Provided:" + id
             };
         }
 
