@@ -2,8 +2,16 @@ import ballerina/io;
 
 const name = "hello";
 
+type MapArray map<string>[];
+
 function sayHello() {
     io:println("Hello world");
+}
+
+enum Color {
+    RED,
+    GREEN,
+    BLUE
 }
 
 function add(int a, int b) returns int|error {
